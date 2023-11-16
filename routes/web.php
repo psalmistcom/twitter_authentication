@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TwitterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +27,6 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('auth/twitter', [TwitterController::class, 'loginwithTwitter']);
+Route::get('auth/callback/twitter', [TwitterController::class, 'cbTwitter']);
