@@ -54,6 +54,11 @@
                     style="background: #1E9DEA; padding: 10px; width: 100%; text-align: center; display: block; border-radius:4px; color: #ffffff; ">
                     Login with Twitter </a>
             </div>
+            <div class="flex items-center justify-end mt-4">
+                <a href="{{ url('auth/facebook') }}" class="btn"
+                    style="background: #04025c; padding: 10px; width: 100%; text-align: center; display: block; border-radius:4px; color: #ffffff; ">
+                    Login with Facebook </a>
+            </div>
         </form>
     </x-authentication-card>
 </x-guest-layout>

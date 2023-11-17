@@ -6,20 +6,19 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
-use Exception;
 
-class TwitterController extends Controller
+class FacebookController extends Controller
 {
-    public function loginwithTwitter()
+    public function loginwithFacebook()
     {
-        return Socialite::driver('twitter')->redirect();
+        return Socialite::driver('facebook')->redirect();
     }
 
-    public function cbTwitter()
+    public function cbFacebook()
     {
-        $user = Socialite::driver('twitter')->user();
+        $user = Socialite::driver('facebook')->user();
 
-        //dd($user);
+        dd($user);
 
         $userWhere = User::updateOrCreate([
             'twitter_id' => $user->id,

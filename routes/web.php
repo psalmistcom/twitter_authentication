@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FacebookController;
 use App\Http\Controllers\TwitterController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,4 +31,5 @@ Route::middleware([
 
 Route::get('auth/twitter', [TwitterController::class, 'loginwithTwitter']);
 Route::get('auth/callback/twitter', [TwitterController::class, 'cbTwitter']);
-Route::get('auth/callback/facebook', [TwitterController::class, 'cbFacebook']);
+Route::get('auth/facebook', [FacebookController::class, 'loginwithFacebook']);
+Route::get('auth/callback/facebook', [FacebookController::class, 'cbFacebook']);
