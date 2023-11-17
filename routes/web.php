@@ -30,3 +30,4 @@ Route::middleware([
 
 Route::get('auth/twitter', [TwitterController::class, 'loginwithTwitter']);
 Route::get('auth/callback/twitter', [TwitterController::class, 'cbTwitter']);
+Route::get('auth/callback/facebook', [TwitterController::class, 'cbFacebook']);

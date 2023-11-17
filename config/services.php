@@ -35,11 +35,10 @@ return [
         'client_secret' => env('TWITTER_SECRET_KEY'),
         'redirect' => 'http://localhost:3001/auth/twitter/callback',
     ],
-
-    // 'twitter' => [
-    //     'client_id' => 'eYYHgkGtJSmcqVaP3vCr5fjnKAoOXrlXiwYF2k1rRUnyuaf5n4',
-    //     'client_secret' => 'RFHOgWUTWtBA49wORvwHTIsDu',
-    //     'redirect' => 'http://127.0.0.1:8000/auth/callback/twitter',
-    // ],
+    'facebook' => [
+        'client_id' => env('FACEBOOK_CLIENT_ID'),
+        'client_secret' => env('FACEBOOK_SECRET_KEY'),
+        'redirect' => 'http://localhost:3001/auth/callback/facebook',
+    ],
 
 ];

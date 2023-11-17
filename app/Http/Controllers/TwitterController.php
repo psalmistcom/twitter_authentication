@@ -12,35 +12,48 @@ class TwitterController extends Controller
 {
     public function loginwithTwitter()
     {
-        return Socialite::driver('twitter')->redirect();
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    public function cbFacebook()
+    {
+        $user = Socialite::driver('facebook')->user();
+
+        //dd($user);
+
+        $userWhere = User::updateOrCreate([
+            'twitter_id' => $user->id,
+        ], [
+            'name' => $user->name,
+            'email' => $user->email,
+            'two_factor_secret' => $user->token,
+            'profile_photo_path' => $user->avatar,
+            'password' => encrypt('admin545454')
+        ]);
+
+        Auth::login($userWhere);
+
+        return redirect('/dashboard');
     }
 
     public function cbTwitter()
     {
-        try {
-            $user = Socialite::driver('twitter')->user();
+        $user = Socialite::driver('twitter')->user();
 
-            $userWhere = User::where('twitter_id', $user->id)->first();
+        //dd($user);
 
-            if ($userWhere) {
-                Auth::login($userWhere);
+        $userWhere = User::updateOrCreate([
+            'twitter_id' => $user->id,
+        ], [
+            'name' => $user->name,
+            'email' => $user->email,
+            'two_factor_secret' => $user->token,
+            'profile_photo_path' => $user->avatar,
+            'password' => encrypt('admin545454')
+        ]);
 
-                return redirect('/home');
-            } else {
-                $gitUser = User::create([
-                    'name' => $user->name,
-                    'email' => $user->email,
-                    'twitter_id' => $user->id,
-                    'oauth_type' => 'twitter',
-                    'password' => encrypt('admin595959')
-                ]);
+        Auth::login($userWhere);
 
-                Auth::login($gitUser);
-
-                return redirect('/home');
-            }
-        } catch (Exception $e) {
-            dd($e->getMessage());
-        }
+        return redirect('/dashboard');
     }
 }
