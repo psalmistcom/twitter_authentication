@@ -30,6 +30,11 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    'twitter-oauth-2' => [
+        'client_id' => env('TWITTER_CLIENT_ID_TWO'),
+        'client_secret' => env('TWITTER_SECRET_KEY_TWO'),
+        'redirect' => 'http://localhost:3001/auth/twitter/callback',
+    ],
     'twitter' => [
         'client_id' => env('TWITTER_CLIENT_ID'),
         'client_secret' => env('TWITTER_SECRET_KEY'),
