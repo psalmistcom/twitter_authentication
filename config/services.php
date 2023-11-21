@@ -33,12 +33,12 @@ return [
     'twitter-oauth-2' => [
         'client_id' => env('TWITTER_CLIENT_ID_TWO'),
         'client_secret' => env('TWITTER_SECRET_KEY_TWO'),
-        'redirect' => 'http://localhost:3001/auth/twitter/callback',
+        'redirect' => 'http://127.0.0.1:8000/oauth/complete/twitter/',
     ],
     'twitter' => [
         'client_id' => env('TWITTER_CLIENT_ID'),
         'client_secret' => env('TWITTER_SECRET_KEY'),
-        'redirect' => 'http://localhost:3001/auth/twitter/callback',
+        'redirect' => 'http://127.0.0.1:8000/oauth/complete/twitter/',
     ],
     'facebook' => [
         'client_id' => env('FACEBOOK_CLIENT_ID'),

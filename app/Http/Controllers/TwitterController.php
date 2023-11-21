@@ -12,14 +12,14 @@ class TwitterController extends Controller
 {
     public function loginwithTwitter()
     {
-        // return Socialite::driver('twitter-oauth-2')->redirect();
-        return Socialite::driver('twitter')->redirect();
+        return Socialite::driver('twitter-oauth-2')->redirect();
+        // return Socialite::driver('twitter')->redirect();
     }
 
     public function cbTwitter()
     {
-        // $user = Socialite::driver('twitter-oauth-2')->user();
-        $user = Socialite::driver('twitter')->user();
+        $user = Socialite::driver('twitter-oauth-2')->user();
+        // $user = Socialite::driver('twitter')->user();
 
         dd($user);
 
